@@ -6,6 +6,9 @@ const dbConfig = {
   user: process.env.DB_USER || 'root',
   port: process.env.DB_PORT || 3306,
   password: process.env.DB_PASSWORD || '',
+  ssl: {
+    rejectUnauthorized: true
+  }
 };
 
 const connection = mysql.createConnection(dbConfig);
