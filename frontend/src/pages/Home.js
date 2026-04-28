@@ -108,7 +108,7 @@ export default function Home() {
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '20px', maxWidth: '1200px', margin: '0 auto' }}>
           <div style={{ borderRadius: '16px', overflow: 'hidden', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
             <img 
-              src={settings.photo_1?.startsWith('/uploads') ? `http://localhost:8880${settings.photo_1}` : settings.photo_1} 
+              src={settings.photo_1?.startsWith('/uploads') ? `https://joprojet.onrender.com${settings.photo_1}` : settings.photo_1} 
               alt="Extérieur de la bibliothèque" 
               style={{ width: '100%', height: '250px', objectFit: 'cover', display: 'block' }} 
             />
@@ -116,7 +116,7 @@ export default function Home() {
           </div>
           <div style={{ borderRadius: '16px', overflow: 'hidden', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
             <img 
-              src={settings.photo_2?.startsWith('/uploads') ? `http://localhost:8880${settings.photo_2}` : settings.photo_2} 
+              src={settings.photo_2?.startsWith('/uploads') ? `https://joprojet.onrender.com${settings.photo_2}` : settings.photo_2} 
               alt="Intérieur de la bibliothèque" 
               style={{ width: '100%', height: '250px', objectFit: 'cover', display: 'block' }} 
             />
@@ -124,7 +124,7 @@ export default function Home() {
           </div>
           <div style={{ borderRadius: '16px', overflow: 'hidden', boxShadow: '0 4px 15px rgba(0,0,0,0.1)' }}>
             <img 
-              src={settings.photo_3?.startsWith('/uploads') ? `http://localhost:8880${settings.photo_3}` : settings.photo_3} 
+              src={settings.photo_3?.startsWith('/uploads') ? `https://joprojet.onrender.com${settings.photo_3}` : settings.photo_3} 
               alt="Rayonnages de livres" 
               style={{ width: '100%', height: '250px', objectFit: 'cover', display: 'block' }} 
             />

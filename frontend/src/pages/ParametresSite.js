@@ -56,7 +56,7 @@ export default function ParametresSite() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
           <div style={{ width: '100px', height: '60px', borderRadius: '4px', background: '#eee', overflow: 'hidden', border: '1px solid #ddd' }}>
             {currentPhoto ? (
-              <img src={currentPhoto.startsWith('http') ? currentPhoto : `http://localhost:8880${currentPhoto}`} alt="Aperçu" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <img src={currentPhoto.startsWith('http') ? currentPhoto : `https://joprojet.onrender.com${currentPhoto}`} alt="Aperçu" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
             ) : <div style={{ textAlign: 'center', lineHeight: '60px', color: '#aaa' }}>Aucune</div>}
           </div>
           <div style={{ flex: 1 }}>

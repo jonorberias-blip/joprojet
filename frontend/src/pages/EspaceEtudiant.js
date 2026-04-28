@@ -153,10 +153,10 @@ export default function EspaceEtudiant() {
                 {livresFiltres.map(l => (
                   <div key={l.id} className="card glass-panel" style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
                     <div 
-                      onClick={() => l.photo_url && setPreviewImage(`http://localhost:8880${l.photo_url}`)}
+                      onClick={() => l.photo_url && setPreviewImage(`https://joprojet.onrender.com${l.photo_url}`)}
                       style={{ height: '200px', borderRadius: '8px', overflow: 'hidden', background: '#f8fafc', position: 'relative', cursor: l.photo_url ? 'zoom-in' : 'default', border: '1px solid #eee' }}>
                       {l.photo_url ? (
-                        <img src={`http://localhost:8880${l.photo_url}`} alt={l.titre} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src={`https://joprojet.onrender.com${l.photo_url}`} alt={l.titre} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                       ) : (
                         <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '60px' }}>📖</div>
                       )}
@@ -308,12 +308,12 @@ export default function EspaceEtudiant() {
             
             <div className="card glass-panel" style={{ marginTop: '24px', display: 'flex', alignItems: 'center', gap: '30px', padding: '30px' }}>
               <div 
-                onClick={() => user?.photo_url && setPreviewImage(user.photo_url.startsWith('http') ? user.photo_url : `http://localhost:8880${user.photo_url}`)}
+                onClick={() => user?.photo_url && setPreviewImage(user.photo_url.startsWith('http') ? user.photo_url : `https://joprojet.onrender.com${user.photo_url}`)}
                 style={{ width: '120px', height: '120px', borderRadius: '50%', overflow: 'hidden', border: '4px solid #fff', boxShadow: '0 8px 20px rgba(0,0,0,0.1)', background: '#eee', flexShrink: 0, cursor: user?.photo_url ? 'zoom-in' : 'default' }}
               >
                 {user?.photo_url ? (
                   <img 
-                    src={user.photo_url.startsWith('http') ? user.photo_url : `http://localhost:8880${user.photo_url}`} 
+                    src={user.photo_url.startsWith('http') ? user.photo_url : `https://joprojet.onrender.com${user.photo_url}`} 
                     alt="Profil" 
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                     onError={(e) => { e.target.src = 'https://via.placeholder.com/120?text=👤'; }}

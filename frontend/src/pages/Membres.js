@@ -117,12 +117,12 @@ export default function Membres() {
                   <tr key={m.id}>
                     <td style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                       <div 
-                        onClick={() => m.photo_url && setPreviewImage(m.photo_url.startsWith('http') ? m.photo_url : `http://localhost:8880${m.photo_url}`)}
+                        onClick={() => m.photo_url && setPreviewImage(m.photo_url.startsWith('http') ? m.photo_url : `https://joprojet.onrender.com${m.photo_url}`)}
                         style={{ width: '40px', height: '40px', borderRadius: '50%', overflow: 'hidden', background: '#eee', flexShrink: 0, border: '2px solid #fff', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', cursor: m.photo_url ? 'zoom-in' : 'default' }}
                       >
                         {m.photo_url ? (
                           <img 
-                            src={m.photo_url.startsWith('http') ? m.photo_url : `http://localhost:8880${m.photo_url}`} 
+                            src={m.photo_url.startsWith('http') ? m.photo_url : `https://joprojet.onrender.com${m.photo_url}`} 
                             alt="Avatar" 
                             style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
                             onError={(e) => { e.target.src = 'https://via.placeholder.com/40?text=👤'; }}

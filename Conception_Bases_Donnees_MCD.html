@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Conception BDD - MCD & Relationnel - Biblio-UNA</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; margin: 40px; }
+        h1 { color: #1E3A5F; text-align: center; border-bottom: 2px solid #1E3A5F; padding-bottom: 10px; }
+        h2 { color: #1E3A5F; margin-top: 30px; border-left: 5px solid #1E3A5F; padding-left: 10px; }
+        h3 { color: #2c3e50; background: #f4f6fb; padding: 10px; border-radius: 5px; }
+        .table-def { background: #fff; border: 1px solid #ddd; padding: 15px; margin-bottom: 20px; border-radius: 8px; }
+        .pk { color: #e67e22; font-weight: bold; } /* Primary Key */
+        .fk { color: #27ae60; font-weight: bold; } /* Foreign Key */
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+        th, td { border: 1px solid #eee; padding: 10px; text-align: left; font-size: 14px; }
+        th { background-color: #f8f9fa; }
+        .relation { text-align: center; font-weight: bold; color: #1E3A5F; padding: 10px; background: #eef2f7; border-radius: 50px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+
+    <h1>PHASE 2 : CONCEPTION TECHNIQUE (BDD)</h1>
+    <p style={{ textAlign: 'center' }}>Modélisation Conceptuelle et Relationnelle de la Base de Données</p>
+
+    <h2>1. MODÈLE CONCEPTUEL DE DONNÉES (MCD)</h2>
+    <p>Le MCD présente les entités métier et les relations qui les lient sans contraintes techniques.</p>
+
+    <div class="table-def">
+        <strong>ENTITÉ : LIVRE</strong><br>
+        Un ouvrage physique ou numérique stocké dans la bibliothèque.
+    </div>
+    <div class="relation">1,N ---- [ CONCERNE ] ---- 0,N</div>
+    <div class="table-def">
+        <strong>ENTITÉ : RÉSERVATION</strong><br>
+        Une demande effectuée par un membre pour bloquer un livre.
+    </div>
+    <div class="relation">0,N ---- [ EFFECTUE ] ---- 1,1</div>
+    <div class="table-def">
+        <strong>ENTITÉ : MEMBRE (Étudiant)</strong><br>
+        L'utilisateur inscrit rattaché à une faculté.
+    </div>
+
+    <h2>2. MODÈLE LOGIQUE DE DONNÉES (MLD / RELATIONNEL)</h2>
+    <p>Voici la structure technique exacte des tables MySQL utilisées dans le projet.</p>
+
+    <div class="table-def">
+        <h3>📊 Table : `livres`</h3>
+        <table>
+            <tr><th>Champ</th><th>Type</th><th>Rôle</th></tr>
+            <tr><td class="pk">id</td><td>INT (AI)</td><td>Clé Primaire</td></tr>
+            <tr><td>titre</td><td>VARCHAR(255)</td><td>Nom de l'ouvrage</td></tr>
+            <tr><td>auteur</td><td>VARCHAR(255)</td><td>Auteur du livre</td></tr>
+            <tr><td>isbn</td><td>VARCHAR(50)</td><td>Code unique (Unique Key)</td></tr>
+            <tr><td>photo_url</td><td>VARCHAR(255)</td><td>Lien vers la couverture</td></tr>
+            <tr><td>resume</td><td>TEXT</td><td>Brève description</td></tr>
+            <tr><td>disponibles</td><td>INT</td><td>Nombre en stock actuel</td></tr>
+        </table>
+    </div>
+
+    <div class="table-def">
+        <h3>👥 Table : `membres`</h3>
+        <table>
+            <tr><th>Champ</th><th>Type</th><th>Rôle</th></tr>
+            <tr><td class="pk">id</td><td>INT (AI)</td><td>Clé Primaire</td></tr>
+            <tr><td>nom</td><td>VARCHAR(100)</td><td>Nom de famille</td></tr>
+            <tr><td>email</td><td>VARCHAR(150)</td><td>Identifiant de connexion</td></tr>
+            <tr><td>droit_paye</td><td>BOOLEAN</td><td>Statut de l'abonnement</td></tr>
+            <tr><td>note_confiance</td><td>INT</td><td>Score (0 à 100)</td></tr>
+        </table>
+    </div>
+
+    <div class="table-def">
+        <h3>🔖 Table : `reservations`</h3>
+        <table>
+            <tr><th>Champ</th><th>Type</th><th>Rôle</th></tr>
+            <tr><td class="pk">id</td><td>INT (AI)</td><td>Clé Primaire</td></tr>
+            <tr><td class="fk">membre_id</td><td>INT</td><td>Clé Étrangère (Ref Membres)</td></tr>
+            <tr><td class="fk">livre_id</td><td>INT</td><td>Clé Étrangère (Ref Livres)</td></tr>
+            <tr><td>statut</td><td>ENUM</td><td>'en_attente', 'satisfaite', 'annulee'</td></tr>
+            <tr><td>date_reservation</td><td>DATETIME</td><td>Date de la demande</td></tr>
+        </table>
+    </div>
+
+    <h2>3. DICTIONNAIRE DES DONNÉES SYNTHÉTIQUE</h2>
+    <p>Ce tableau résume les types de données pour le développement.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Donnée</th>
+                <th>Type SQL</th>
+                <th>Contrainte</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>ID_Unique</td>
+                <td>INT</td>
+                <td>PRIMARY KEY</td>
+                <td>Identifiant auto-incrémenté</td>
+            </tr>
+            <tr>
+                <td>Mots_de_passe</td>
+                <td>VARCHAR(255)</td>
+                <td>NOT NULL</td>
+                <td>Stockage sécurisé (haché)</td>
+            </tr>
+            <tr>
+                <td>Images / Photos</td>
+                <td>VARCHAR(255)</td>
+                <td>NULL</td>
+                <td>Chemin d'accès au fichier sur le serveur</td>
+            </tr>
+            <tr>
+                <td>Booleans</td>
+                <td>TINYINT(1)</td>
+                <td>DEFAULT 0</td>
+                <td>Utilisé pour les statuts Oui/Non</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style={{ marginTop: '40px', textAlign: 'center', color: '#888', fontStyle: 'italic' }}>
+        Document généré pour la documentation technique du projet Biblio-UNA.
+    </div>
+
+</body>
+</html>

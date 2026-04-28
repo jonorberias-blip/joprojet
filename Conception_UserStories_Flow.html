@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Conception - User Stories & User Flow - Biblio-UNA</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; line-height: 1.6; color: #333; margin: 40px; }
+        h1 { color: #1E3A5F; text-align: center; border-bottom: 2px solid #1E3A5F; padding-bottom: 10px; }
+        h2 { color: #1E3A5F; margin-top: 30px; border-left: 5px solid #1E3A5F; padding-left: 10px; }
+        h3 { color: #2c3e50; background: #f4f6fb; padding: 10px; border-radius: 5px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #1E3A5F; color: white; }
+        .user-story { background: #fff; border: 1px solid #eee; padding: 15px; margin-bottom: 10px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        .role { font-weight: bold; color: #d35400; text-transform: uppercase; font-size: 12px; }
+        .flow-step { margin-left: 20px; padding-left: 20px; border-left: 2px dashed #1E3A5F; position: relative; }
+        .flow-step::before { content: '→'; position: absolute; left: -10px; color: #1E3A5F; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <h1>PHASE 1 : ANALYSE DES BESOINS</h1>
+    <p style={{ textAlign: 'center' }}>Document de Conception : User Stories & Parcours Utilisateurs (User Flow)</p>
+
+    <h2>1. USER STORIES (Histoires Utilisateurs)</h2>
+    <p>Cette section définit les besoins fonctionnels du point de vue de l'utilisateur final.</p>
+
+    <h3>1.1. Profil : ÉTUDIANT</h3>
+    <div class="user-story">
+        <span class="role">Story #01</span><br>
+        <strong>En tant qu'</strong> étudiant, <strong>je veux</strong> créer un compte en téléchargeant ma photo et mon certificat de scolarité <strong>afin d'</strong>être référencé dans la base de la bibliothèque sans me déplacer.
+    </div>
+    <div class="user-story">
+        <span class="role">Story #02</span><br>
+        <strong>En tant qu'</strong> étudiant, <strong>je veux</strong> consulter le catalogue et lire les résumés des livres <strong>afin de</strong> choisir l'ouvrage le plus pertinent pour mes révisions.
+    </div>
+    <div class="user-story">
+        <span class="role">Story #03</span><br>
+        <strong>En tant qu'</strong> étudiant, <strong>je veux</strong> réserver un livre disponible <strong>afin de</strong> m'assurer qu'il me soit réservé quand j'arriverai physiquement à la bibliothèque.
+    </div>
+    <div class="user-story">
+        <span class="role">Story #04</span><br>
+        <strong>En tant qu'</strong> étudiant, <strong>je veux</strong> suivre l'état de mes emprunts et voir ma note de confiance <strong>afin d'</strong>éviter les sanctions pour retard.
+    </div>
+
+    <h3>1.2. Profil : STAFF / BIBLIOTHÉCAIRE</h3>
+    <div class="user-story">
+        <span class="role">Story #05</span><br>
+        <strong>En tant que</strong> staff, <strong>je veux</strong> valider ou refuser les demandes de réservation <strong>afin de</strong> gérer équitablement le stock de livres physiques.
+    </div>
+    <div class="user-story">
+        <span class="role">Story #06</span><br>
+        <strong>En tant que</strong> staff, <strong>je veux</strong> enregistrer le retour d'un livre <strong>afin d'</strong>augmenter automatiquement le stock disponible et clore l'emprunt.
+    </div>
+    <div class="user-story">
+        <span class="role">Story #07</span><br>
+        <strong>En tant que</strong> staff, <strong>je veux</strong> appliquer une sanction (baisse de score) à un membre <strong>afin de</strong> punir les retards ou les livres abîmés.
+    </div>
+
+    <h3>1.3. Profil : ADMINISTRATEUR</h3>
+    <div class="user-story">
+        <span class="role">Story #08</span><br>
+        <strong>En tant qu'</strong> admin, <strong>je veux</strong> gérer les comptes des bibliothécaires <strong>afin de</strong> contrôler les accès à la plateforme.
+    </div>
+    <div class="user-story">
+        <span class="role">Story #09</span><br>
+        <strong>En tant qu'</strong> admin, <strong>je veux</strong> modifier les photos de la galerie et les contacts du site <strong>afin de</strong> garder les informations à jour pour le public.
+    </div>
+
+    <h2>2. USER FLOW (Parcours de l'Utilisateur)</h2>
+    <p>Le User Flow décrit le cheminement logique des utilisateurs à travers les différentes pages de l'application.</p>
+
+    <h3>2.1. Parcours de l'Étudiant (De l'inscription à l'emprunt)</h3>
+    <div class="flow-step">Arrivée sur la <strong>Page d'Accueil</strong> publique.</div>
+    <div class="flow-step">Clic sur "S'inscrire" -> Remplissage du <strong>Formulaire d'inscription</strong> + Upload des fichiers.</div>
+    <div class="flow-step">Redirection vers <strong>Page Connexion</strong> après succès.</div>
+    <div class="flow-step">Entrée dans l'<strong>Espace Étudiant</strong> (Tableau de bord).</div>
+    <div class="flow-step">Consultation du <strong>Catalogue</strong> (Filtre par catégorie).</div>
+    <div class="flow-step">Clic sur un livre -> Zoom sur la couverture -> Lecture du résumé.</div>
+    <div class="flow-step">Clic sur "Réserver" -> Validation automatique du stock et de l'abonnement.</div>
+    <div class="flow-step">Consultation de "Mes Réservations" pour voir le statut (En attente / Validé).</div>
+
+    <h3>2.2. Parcours du Bibliothécaire (Gestion quotidienne)</h3>
+    <div class="flow-step">Connexion sur la page <strong>Staff</strong>.</div>
+    <div class="flow-step">Consultation du Dashboard -> Liste des nouvelles réservations.</div>
+    <div class="flow-step">Clic sur "Valider" -> Remise du livre physique à l'étudiant -> Le statut passe en "Emprunté".</div>
+    <div class="flow-step">Réception du livre rendu -> Clic sur "Retour" -> Le stock remonte automatiquement.</div>
+
+    <h2>3. MATRICE DE NAVIGATION</h2>
+    <table>
+        <tr>
+            <th>Page Source</th>
+            <th>Action</th>
+            <th>Page Destination</th>
+        </tr>
+        <tr>
+            <td>Accueil</td>
+            <td>Se Connecter</td>
+            <td>Login</td>
+        </tr>
+        <tr>
+            <td>Login</td>
+            <td>Succès Connexion (Etudiant)</td>
+            <td>Espace Étudiant</td>
+        </tr>
+        <tr>
+            <td>Login</td>
+            <td>Succès Connexion (Admin)</td>
+            <td>Dashboard Admin</td>
+        </tr>
+        <tr>
+            <td>Espace Étudiant</td>
+            <td>Clic Logo / Accueil</td>
+            <td>Accueil Publique</td>
+        </tr>
+        <tr>
+            <td>Dashboard Admin</td>
+            <td>Menu Livres</td>
+            <td>Gestion du Catalogue</td>
+        </tr>
+    </table>
+
+</body>
+</html>

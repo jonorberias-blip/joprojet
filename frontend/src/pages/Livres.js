@@ -86,10 +86,10 @@ export default function Livres() {
                     <td>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
                         <div 
-                          onClick={() => l.photo_url && setPreviewImage(`http://localhost:8880${l.photo_url}`)}
+                          onClick={() => l.photo_url && setPreviewImage(`https://joprojet.onrender.com${l.photo_url}`)}
                           style={{ width: '40px', height: '56px', borderRadius: '4px', overflow: 'hidden', background: '#eee', flexShrink: 0, border: '1px solid #ddd', cursor: l.photo_url ? 'zoom-in' : 'default' }}>
                           {l.photo_url ? (
-                            <img src={`http://localhost:8880${l.photo_url}`} alt="Couverture" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                            <img src={`https://joprojet.onrender.com${l.photo_url}`} alt="Couverture" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                           ) : (
                             <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '20px' }}>📖</div>
                           )}
